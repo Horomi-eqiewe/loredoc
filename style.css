@@ -24,7 +24,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* ---------- звёзды ---------- */
+
 .stars{
   position:fixed;
   inset:0;
@@ -39,12 +39,12 @@ body{
 }
 @keyframes pan{from{background-position:0 0;}to{background-position:1000px 500px;}}
 
-/* ---------- скролл ---------- */
+
 ::-webkit-scrollbar{width:8px}
 ::-webkit-scrollbar-track{background:var(--surface)}
 ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
 
-/* ---------- гамбургер ---------- */
+
 .nav-checkbox{display:none}
 .hamburger{
   display:none;
@@ -52,14 +52,15 @@ body{
   top:1rem; right:1rem;
   z-index:30;
   cursor:pointer;
-  background:var(--surface);
+  background:rgba(44,37,56,.85);
+  backdrop-filter:blur(6px);
   padding:.5rem;
   border-radius:8px;
   box-shadow:0 2px 8px var(--shadow);
 }
 .hamburger .material-icons.md-24{font-size:24px;color:var(--text)}
 
-/* ---------- верхняя панель ---------- */
+
 nav{
   position:sticky;
   top:0;
@@ -111,11 +112,15 @@ nav button.active{
 .material-icons.md-18{font-size:18px}
 .material-icons.md-24{font-size:24px}
 
-/* ---------- заголовок ---------- */
+
 header{
   text-align:center;
   padding:5rem 2rem 4rem;
   animation:fadeDown .9s ease;
+}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-30px);}
+  to{opacity:1;transform:translateY(0);}
 }
 h1{
   font-size:3.2rem;
@@ -133,7 +138,6 @@ h1{
   box-shadow:0 4px 15px var(--shadow);
 }
 
-/* ---------- карточка ---------- */
 .card{
   background:var(--surface);
   margin:2.5rem auto;
@@ -155,7 +159,7 @@ h1{
 .card ul{list-style:none;}
 .card li+li{margin-top:.4rem;}
 
-/* ---------- соц-кнопки ---------- */
+
 .social-line{
   margin-top: 1.2rem;
   display: flex;
@@ -178,7 +182,7 @@ h1{
   box-shadow: 0 6px 18px rgba(180,110,230,.45);
 }
 
-/* ---------- анимационные блоки ---------- */
+
 .content-block{
   margin:2.5rem auto;
   max-width:740px;
@@ -203,7 +207,7 @@ h1{
   clip-path:inset(0 0 0 0);
 }
 
-/* ---------- шапка/подвал ---------- */
+
 .head-img,
 .foot-img{
   width:100%;
@@ -230,10 +234,10 @@ h1{
 .text h2{margin-bottom:1rem;font-size:1.8rem;}
 .text p{margin-bottom:1rem;}
 
-/* ---------- маска с плавной развёрткой ---------- */
+
 .text-mask{
   position:relative;
-  max-height:11em;
+  max-height:11em;             /* ≈ 7 строк */
   overflow:hidden;
   transition:max-height .7s cubic-bezier(.22,1,.36,1);
 }
@@ -241,7 +245,7 @@ h1{
   content:'';
   position:absolute;
   inset:auto 0 0 0;
-  height:3em;
+  height:4em;                 /* затухающий край чуть выше */
   background:linear-gradient(to bottom, transparent, var(--surface) 90%);
   pointer-events:none;
   transition:opacity .4s;
@@ -253,7 +257,7 @@ h1{
   opacity:0;
 }
 
-/* ---------- новая полупрозрачная кнопка ---------- */
+
 .expand-btn{
   display:inline-flex;
   align-items:center;
@@ -286,7 +290,7 @@ h1{
 }
 .btn-text{pointer-events:none;}
 
-/* ---------- галерея ---------- */
+
 .gallery{
   display:flex;
   gap:1rem;
@@ -307,7 +311,7 @@ h1{
   filter:saturate(1.15);
 }
 
-/* ---------- мобильное меню ---------- */
+
 @media (max-width:700px){
   .hamburger{display:block}
   .nav-inner{
@@ -329,7 +333,7 @@ h1{
   .gallery img{width:100%;max-width:220px;}
 }
 
-/* ---------- оверлей картинок ---------- */
+
 .img-overlay{
   position:fixed;
   inset:0;
