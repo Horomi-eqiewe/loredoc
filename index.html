@@ -23,9 +23,10 @@
   <div class="stars" aria-hidden="true"></div>
 
   <input type="checkbox" id="nav-toggle" class="nav-checkbox">
-  <label for="nav-toggle" class="hamburger">
+  <label for="nav-toggle" class="hamburger mobile-only">
     <span class="material-icons md-24">menu</span>
   </label>
+  <label for="nav-toggle" class="overlay-close-mobile"></label>
 
   <nav class="top-bar">
     <div class="nav-inner">
@@ -96,7 +97,7 @@
       <div class="text">
         <div class="text-mask" id="look-mask">
           <p>Кот среднего размера, с вытянутым и гибким телом. Лапы длинные, задние немного мощнее передних. Хвост длинный и очень пушистый.</p>
-          <p>Окрас трёхцветный: чёрный, белый и рыже-персиковый. Чёрный цвет занимает голову, спину и часть боков. Белая шерсть находится на груди, животе, хвосте и задней части тела. Рыже-персиковые участки есть на лапах, морде и в виде отдельных пятен по корпусу. Рисунок окраса неровный, с резкими границами между цветами. На груди присутствуют тёмные полосы.</p>
+          <p>Окрас трёхцветный: чёрный, белый и рыже-персиковый. Чёрный цвет занимает голову, спину и часть боков. Белая шерсть находится на груди, животе, хвосте и задней части тела. Рыже-персиковые участки есть на лапах, морде и в виде отдельных пятен по корпусу. Рисунок окрас неровный, с резкими границами между цветами. На груди присутствуют тёмные полосы.</p>
           <p>Шерсть средней длины, неравномерная, местами выглядит взъерошенной.</p>
           <p>Голова клиновидной формы. Уши крупные, стоячие, с заострёнными кончиками. Глаза разного цвета: один жёлто-оранжевый, второй фиолетовый. Веки тёмные, что усиливает контраст глаз. Нос тёмный. Зубы заметные, острые, часто видны даже при закрытой пасти.</p>
         </div>
@@ -105,7 +106,7 @@
           <span class="btn-icon material-icons md-18">expand_more</span>
         </button>
       </div>
-      <img class="foot-img" src="images/foot.jpg" alt="шапка внешности">
+      <img class="foot-img" src="images/foot.jpg" alt="">
     </section>
 
     <section class="content-block" id="char">
@@ -123,7 +124,7 @@
           <span class="btn-icon material-icons md-18">expand_more</span>
         </button>
       </div>
-      <img class="foot-img" src="images/foot.jpg" alt="шапка характера">
+      <img class="foot-img" src="images/foot.jpg" alt="">
     </section>
 
     <section class="content-block" id="gallery">
@@ -145,7 +146,7 @@
           <span class="btn-icon material-icons md-18">expand_more</span>
         </button>
       </div>
-      <img class="foot-img" src="images/foot.jpg" alt="шапка галереи">
+      <img class="foot-img" src="images/foot.jpg" alt="">
     </section>
   </main>
 
@@ -171,6 +172,9 @@
 
     document.querySelectorAll('nav button').forEach(btn => {
       btn.addEventListener('click', () => {
+        // Закрываем мобильное меню
+        document.getElementById('nav-toggle').checked = false;
+        
         const id = btn.dataset.target;
         if (id === 'home') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -201,6 +205,11 @@
       document.getElementById('imgOverlay').classList.remove('show');
       document.body.style.overflow = '';
     }
+    
+    // Закрытие мобильного меню при клике на overlay
+    document.querySelector('.overlay-close-mobile').addEventListener('click', () => {
+      document.getElementById('nav-toggle').checked = false;
+    });
   </script>
 </body>
 </html>
