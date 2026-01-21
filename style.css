@@ -371,3 +371,25 @@ h1{
 .overlay-close:hover{
   transform:scale(1.15);
 }
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 30;
+  cursor: pointer;
+  background: rgba(44,37,56,.85);
+  backdrop-filter: blur(6px);
+  padding: .5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+.hamburger .material-icons.md-24 {
+  font-size: 24px;
+  color: #f3edf7;
+}
+
+@media (max-width: 700px) {
+  .hamburger { display: block !important; }
+}
